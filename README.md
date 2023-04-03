@@ -1,8 +1,4 @@
 # sportzInteractiveTask
-sportzInteractiveTask
-
-
-# sportzInteractiveTask
 
 A simple application to dynamic url to get match information and display data. also display player list and player information.
 
