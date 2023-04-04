@@ -1,4 +1,5 @@
 package com.sportzInteractive.task.ui.fragment
+
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -41,8 +42,8 @@ class PlayersFragment : BaseFragment<FragmentPlayersBinding, MatchInfoViewModel>
 
     }
 
+    // init ui
     private fun setupViews() {
-
         playerAdapter = PlayerAdapter(requireContext(), this)
         playerAdapterTwo = PlayerAdapter(requireContext(), this)
 
@@ -56,6 +57,7 @@ class PlayersFragment : BaseFragment<FragmentPlayersBinding, MatchInfoViewModel>
         matchInfoModel = args.matchInfoData
     }
 
+    // display teams player list
     private fun setData() {
         if (::matchInfoModel.isInitialized) {
             playerAdapter?.setPlayerList(matchInfoModel.Teams[0].Players)
@@ -65,6 +67,7 @@ class PlayersFragment : BaseFragment<FragmentPlayersBinding, MatchInfoViewModel>
         }
     }
 
+    // when change radio button display particular team player list
     private fun onCheckedChangeListener() {
         getBinding().radioGroupTeams.setOnCheckedChangeListener { _, i ->
             when (i) {
@@ -87,7 +90,7 @@ class PlayersFragment : BaseFragment<FragmentPlayersBinding, MatchInfoViewModel>
             }
         }
     }
-
+// item Clicked particular player open dialog to display player information
     override fun itemClicked(players: Players) {
         val playerInfoDialog by showPlayerInfo(players)
         playerInfoDialog.show()

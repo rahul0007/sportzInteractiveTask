@@ -22,6 +22,7 @@ class HomeActivity : BaseActivity() {
 
     }
 
+//    navigation
     private fun setupNavigation() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

@@ -35,6 +35,7 @@ class MatchInfoViewModel @Inject constructor(
         )
     }
 
+    // get get Match Info
     fun getMatchInfo() {
         viewModelScope.manageNetwork(context, exceptionHandler)
             ?.launch(exceptionHandler) {
@@ -60,6 +61,7 @@ class MatchInfoViewModel @Inject constructor(
             }
     }
 
+    // filter Data Match Info Response to Match Info Data set Teams and Players list
     private fun filterDataInfo(matchDetailData: MatchInfoResponse): MatchInfoData {
         val teamsDataList = ArrayList<TeamsData>()
         matchDetailData.Teams.forEach { (keys, values) ->

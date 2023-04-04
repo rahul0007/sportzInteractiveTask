@@ -32,13 +32,14 @@ class MatchFragment : BaseFragment<FragmentMatchBinding, MatchInfoViewModel>() {
 
     override fun getBindingVariable() = BR.homeVM
 
+    // setup observe method
     override fun observeViewModel() {
         mViewModel.manageLoading(
             requireActivity(), this, mViewModel.delegateMatchInfo,
             mViewModel.errorLiveData
         ).getMatchInfo()
     }
-
+// init adapter ui match list
     private fun setupViews() {
         matchInfoAdapter =
             MatchInfoAdapter(requireContext(), object : MatchInfoAdapter.OnItemClickedListener {
@@ -51,7 +52,7 @@ class MatchFragment : BaseFragment<FragmentMatchBinding, MatchInfoViewModel>() {
             adapter = matchInfoAdapter
         }
     }
-
+// when Observer value set adapter match data
     private fun setupObservers() {
         mViewModel.delegateMatchInfo.observe(requireActivity()) {
             matchInfoAdapter.updateData(it as ArrayList<MatchInfoData>?)
